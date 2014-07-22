@@ -14,12 +14,15 @@ function RegistrationController() {
             processData: false,
             crossDomain: true,
             data: JSON.stringify(data),
-            complete: function (err, data) {
+            complete: function (data) {
+            	/*
             	if (err) {
             		$('#registration-error-alert').css('display','inline-block');
             	} else {
             		location.href = "/payment";
             	}
+            	*/
+            	console.log(data);
             },
         });
 	}
