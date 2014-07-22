@@ -1,11 +1,10 @@
-doctype
-html.
-  <div>
-    <script src="js/paypal-button.min.js?merchant=jesse.anarde@gmail.com"
-          data-button="buynow"
-          data-name="My product"
-          data-amount="1.00"
-          async>
-    </script>
-  </div>
+extends layout
+
+block pane
+  div.container
+    div.row(style="float:none; margin: 0 auto")
+      div.col-md-2.col-md-offset-5.centered
+        <script src="js/paypal-button.min.js?merchant=jesse.anarde@gmail.com" data-button="buynow" data-name="SFC Registration" data-amount="10.00" async>
+        </script>
+
   
