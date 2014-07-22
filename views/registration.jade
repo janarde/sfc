@@ -1,24 +1,30 @@
 extends layout
 block pane
   div.container-fluid
-    div#registration-error-alert.alert.alert-danger.alert-dismissible(role="alert" style="display:none; margin-top: 40px")
+    div#registration-error-alert.alert.alert-danger.alert-dismissible(role="alert" style="display:none")
       button#btn-registration-alert.close(type="button" data-dismiss="alert")
         span(aria-hidden="true") &times; 
         span.sr-only Close
-      strong Warning! Better check yourself, you're not looking too good.
+      strong Something has gone horribly wrong.
       
     div.rows.container
       form.form-horizontal(role="form")
         div#registration-box.input-group.input-group-lg
         
           input#first-name.form-control(type="text" name="fname" placeholder="FirstName")
+        
           input#last-name.form-control(type="text" name="lname" placeholder="LastName")
+        
           input#phone-number.form-control(type="tel" name="phone" placeholder="PhoneNumber")
-          input#address.form-control(type="address" name="address" placeholder="Address")
-          input#city.form-control(type="city" name="city" placeholder="City")
-          input#zip.form-control(type="zip" name="zip" placeholder="ZipCode")
+        
           input#email-address.form-control(type="email" name="email" placeholder="Email")
+        
           input#home-group.form-control(type="text" name="homegroup" placeholder="HomeGroup")
-
+          
+          input#badge-name.form-control(type="text" name="badgename" placeholder="BadgeName")
+          input#address.form-control(type="text" name="address" placeholder="Address")
+          input#city.form-control(type="text" name="city" placeholder="City")
+          input#zip.form-control(type="text" name="zip" placeholder="ZipCode")
+          
       span.input-group-btn
         button#user-submit.btn.btn-default(type="button") Register & Pay

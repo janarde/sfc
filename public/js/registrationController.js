@@ -15,7 +15,7 @@ function RegistrationController() {
             crossDomain: true,
             data: JSON.stringify(data),
             complete: function (err, data) {
-            	if (err.status != 200) {
+            	if (err) {
             		$('#registration-error-alert').css('display','inline-block');
             	} else {
             		location.href = "/payment";
@@ -33,18 +33,25 @@ var rc = new RegistrationController();
 $(document).ready(function() {
 	$('#user-submit').click(function () {
 		var payload = {
+				// order really matters here because of how we are doing the insert
 				firstName: $('#first-name').val(),
 	            lastName: $('#last-name').val(),
 	            phoneNumber: $('#phone-number').val(),
-	            emailAddress: $('#email-address').val()
+	            emailAddress: $('#email-address').val(),
+	            address: $('#address').val(),
+	            city: $('#city').val(),
+	            zip: $('#zip').val(),
+	            homeGroup: $('#home-group').val(),
+	            badgeName: $('#badge-name').val()
 	    };
 	    rc.register(payload, function(data) {
 	    	//alert(data);
 	    });
 	});
-	
-	$('#btn-registration-alert').click(function() {
-		$('#registration-error-alert').css('display','hidden');
+
+	$(document).on('click', '#btn-registration-alert', function(event) {
+		event.preventDefault();
+		$(this).parent().css('display','none');
 		location.reload();
 	});
-});
+});	
