@@ -24,7 +24,23 @@ exports.register = function(req, res) {
 	var last = req.body.lastName;
 	var phone = req.body.phoneNumber;
 	var email = req.body.emailAddress;
-	var data = { firstName: first, lastName: last, phoneNumber: phone, address: email};
+	var address = req.body.address;
+	var city = req.body.city;
+	var zip = req.body.zip;
+	var homegroup = req.body.homeGroup;
+	var badgename = req.body.badgeName;
+	
+    
+    var data = { firstName: first, 
+    		     lastName: last, 
+    		     phoneNumber: phone, 
+    		     email: email, 
+    		     address: address,
+    		     city: city,
+    		     zip: zip,
+    		     homegroup: homegroup,
+    		     badgename: badgename
+    		    };
 	db.register(data, function(err, result) {
 		if (err) {
 			res.send(err, null);
