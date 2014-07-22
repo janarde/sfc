@@ -8,6 +8,8 @@ USE `sfc` ;
 -- -----------------------------------------------------
 -- Table `sfc`.`Registered`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sfc`.`Registered` ;
+
 CREATE TABLE IF NOT EXISTS `sfc`.`Registered` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
