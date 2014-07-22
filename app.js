@@ -5,6 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , domain = require('domain')
+  , serverDomain = domain.create()
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
@@ -33,6 +35,9 @@ app.get('/registration', routes.registration);
 app.get('/resources', routes.resources);
 app.post('/register', routes.register);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+serverDomain.run(function () {
+	http.createServer(app).listen(app.get('port'), function(){
+		console.log('Express server listening on port ' + app.get('port'));
+	});
 });
+
