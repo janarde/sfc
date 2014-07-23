@@ -14,15 +14,23 @@ function RegistrationController() {
             processData: false,
             crossDomain: true,
             data: JSON.stringify(data),
+            //error: function(jqXHR, e){
+    	    //    console.log(jqXHR.responseText+' :: '+jqXHR.statusText, e);
+            //},
             complete: function (data) {
-            	/*
-            	if (err) {
+            	statusObj = data.responseJSON;
+            	message = "";
+            	if (statusObj.status == "failed") {
+            		if (statusObj.message.errno == 1062) {
+            			message = "Already Registered";
+            			$('#registration-error-alert').append(message);
+            		}
+            		
             		$('#registration-error-alert').css('display','inline-block');
             	} else {
             		location.href = "/payment";
             	}
-            	*/
-            	console.log(data);
+            	console.log(data.responseJSON);
             },
         });
 	}

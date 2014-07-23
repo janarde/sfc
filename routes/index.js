@@ -43,9 +43,9 @@ exports.register = function(req, res) {
     		    };
 	db.register(data, function(err, result) {
 		if (err) {
-			res.send(err, null);
+			res.send({ status: "failed", message : err });
 		} else {
-			res.send(null, result.insertId);
+			res.send({ status: "success", message : result.insertId });
 		}
 	});
 }
