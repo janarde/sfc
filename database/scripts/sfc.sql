@@ -22,7 +22,10 @@ CREATE TABLE IF NOT EXISTS `sfc`.`Registered` (
   `HomeGroup` VARCHAR(45) NULL,
   `BadgeName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `phonenumber_UNIQUE` (`phonenumber` ASC))
+  UNIQUE INDEX `phonenumber_UNIQUE` (`phonenumber` ASC),
+  UNIQUE INDEX `firstname_UNIQUE` (`firstname` ASC),
+  UNIQUE INDEX `lastname_UNIQUE` (`lastname` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
 AUTO_INCREMENT = 62
 DEFAULT CHARACTER SET = latin1;

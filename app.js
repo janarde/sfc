@@ -31,6 +31,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/payment', routes.payment);
+app.get('/about', routes.about);
 app.get('/registration', routes.registration);
 app.get('/resources', routes.resources);
 app.post('/register', routes.register);

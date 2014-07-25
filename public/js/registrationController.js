@@ -5,6 +5,47 @@ function RegistrationController() {
 	
 	var that = this;
 	
+	this.validatePayload = function(payload) {
+		/*
+		 * firstName: $('#first-name').val(),
+	            lastName: $('#last-name').val(),
+	            phoneNumber: $('#phone-number').val(),
+	            emailAddress: $('#email-address').val(),
+	            address: $('#address').val(),
+	            city: $('#city').val(),
+	            zip: $('#zip').val(),
+	            homeGroup: $('#home-group').val(),
+	            badgeName: $('#badge-name').val()
+		 */
+		if (payload.firstName == '') {
+			message = "You must provide your first name.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.lastName == '') {
+			message = "You must provide your last name.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.phoneNumber == '') {
+			message = "You must provide your phone number.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.emailAddress == '') {
+			message = "You must provide your email address.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.badgeName == '') {
+			message = "You must provide your badge name.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else {
+			return true;
+		}
+	};
 	
 	this.register = function(data, callback) {
 		$.ajax({
@@ -43,6 +84,7 @@ var rc = new RegistrationController();
 
 $(document).ready(function() {
 	$('#user-submit').click(function () {
+		
 		var payload = {
 				// order really matters here because of how we are doing the insert
 				firstName: $('#first-name').val(),
@@ -55,9 +97,12 @@ $(document).ready(function() {
 	            homeGroup: $('#home-group').val(),
 	            badgeName: $('#badge-name').val()
 	    };
-	    rc.register(payload, function(data) {
-	    	//alert(data);
-	    });
+		
+		if (rc.validatePayload(payload)) {
+			rc.register(payload, function(data) {
+		    });
+		}
+	    
 	});
 
 	$(document).on('click', '#btn-registration-alert', function(event) {

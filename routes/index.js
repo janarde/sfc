@@ -18,6 +18,10 @@ exports.resources = function(req, res) {
 	res.render('resources', {title: 'Local Resources'});
 };
 
+exports.about = function(req, res) {
+	res.render('about', {title: 'About SFC'});
+};
+
 exports.register = function(req, res) {
 	var db = new dao('localhost', 'sfc', 'sfc', 'sfc');
 	var first = req.body.firstName;
