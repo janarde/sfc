@@ -1,6 +1,16 @@
-doctype
+extends layout
 
-html.
-  <body>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d42986.4817406952!2d-122.36526049999998!3d47.671696091027194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants!5e0!3m2!1sen!2sus!4v1405212556058" width="600" height="450" frameborder="0" style="border:0"></iframe>
-  </body>
+block pane
+  div.container
+    div#sfc-navbar.span9.row-fluid
+      ul.nav.nav-pills
+        li
+          a(href='/') Home
+        li
+          a(href='/registration') Register
+        li.active
+          a(href='/resources') Local Resources
+        li
+          a(href='/about') About SFC
+    div
+      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d42986.4817406952!2d-122.36526049999998!3d47.671696091027194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants!5e0!3m2!1sen!2sus!4v1405212556058" width="600" height="450" frameborder="0" style="border:0"></iframe>

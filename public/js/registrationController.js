@@ -42,6 +42,31 @@ function RegistrationController() {
 			$('#registration-error-alert').text(message);
 			$('#registration-error-alert').css('display','inline-block');
 			return false;
+		} else if (payload.cc == '') {
+			message = "You must provide your Credit Card number.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.ccv == '') {
+			message = "You must provide your ccv number - The last 3 digits on the back of your card.";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.expireMonth == '00') {
+			message = "You must provide your Credit Card expiration month";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.expireYear == '00') {
+			message = "You must provide your Credit Card expiration year";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
+		} else if (payload.ccType == '00') {
+			message = "You must provide your Credit Card Type";
+			$('#registration-error-alert').text(message);
+			$('#registration-error-alert').css('display','inline-block');
+			return false;
 		} else {
 			return true;
 		}
@@ -95,7 +120,12 @@ $(document).ready(function() {
 	            city: $('#city').val(),
 	            zip: $('#zip').val(),
 	            homeGroup: $('#home-group').val(),
-	            badgeName: $('#badge-name').val()
+	            badgeName: $('#badge-name').val(),
+	            cc: $('#cc').val(),
+	            ccv: $('#ccv').val(),
+	            expireMonth: $('#expire-month').val(),
+	            expireYear: $('#expire-year').val(),
+	            ccType: $('#cc-type').val()
 	    };
 		
 		if (rc.validatePayload(payload)) {

@@ -2,5 +2,15 @@ extends layout
 
 block pane
   div.container
+    div#sfc-navbar.span9.row-fluid
+      ul.nav.nav-pills
+        li
+          a(href='/') Home
+        li
+          a(href='/registration') Register
+        li
+          a(href='/resources') Local Resources
+        li.active
+          a(href='/about') About SFC
     object(data='resources/SFCRegistration.pdf' type='application/pdf' width='900' height='1200')
       a(href='resources/SFCRegistration.pdf')

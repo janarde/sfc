@@ -1,6 +1,16 @@
 extends layout
 block pane
   div.container-fluid
+    div#sfc-navbar.span9.row-fluid
+      ul.nav.nav-pills
+        li
+          a(href='/') Home
+        li.active
+          a(href='/registration') Register
+        li
+          a(href='/resources') Local Resources
+        li
+          a(href='/about') About SFC
     div#registration-error-alert.alert.alert-danger.alert-dismissible(role="alert" style="display:none")
       button#btn-registration-alert.close(type="button" data-dismiss="alert")
         span(aria-hidden="true") &times; 
@@ -8,34 +18,97 @@ block pane
       strong Something has gone horribly wrong: 
       
     div.rows.container
-      form.form-horizontal(role="form")
-        div#registration-box-first-name.input-group.input-group-lg
-          label(for="first-name") First Name
-          input#first-name.form-control(type="text" name="fname" placeholder="FirstName")
-        div#registration-box-last-name.input-group.input-group-lg
-          label(for="last-name") Last Name
-          input#last-name.form-control(type="text" name="lname" placeholder="LastName")
-        div#registration-box-phone-number.input-group.input-group-lg
-          label(for="phone-number") Phone Number
-          input#phone-number.form-control(type="tel" name="phone" placeholder="PhoneNumber")
-        div#registration-box-email-address.input-group.input-group-lg
-          label(for="email-address") Email Address
-          input#email-address.form-control(type="email" name="email" placeholder="Email")
-        div#registration-box-home-group.input-group.input-group-lg
-          label(for="home-group") Home Group
-          input#home-group.form-control(type="text" name="homegroup" placeholder="HomeGroup")
-        div#registration-box-badge-name.input-group.input-group-lg  
-          label(for="badge-name") Badge Name
-          input#badge-name.form-control(type="text" name="badgename" placeholder="BadgeName")
-        div#registration-box-address.input-group.input-group-lg
-          label(for="address") Address
-          input#address.form-control(type="text" name="address" placeholder="Address")
-        div#registration-box-city.input-group.input-group-lg
-          label(for="city") City
-          input#city.form-control(type="text" name="city" placeholder="City")
-        div#registration-box-zip.input-group.input-group-lg
-          label(for="zio") Zip Code
-          input#zip.form-control(type="text" name="zip" placeholder="ZipCode")
-          
+      form.form-horizontal
+        div.span4
+          div.row-fluid
+            div.span4
+            div.sim1
+                div#registration-box-first-name.input-group.col-lg-3
+                  input#first-name.form-control(type="text" name="fname" placeholder="First Name")
+            div.span4
+            div.sim1
+                div#registration-box-last-name.input-group.col-lg-3
+                  input#last-name.form-control(type="text" name="lname" placeholder="Last Name")
+            div.span4
+            div.sim1
+                div#registration-box-phone-number.input-group.col-lg-3
+                  input#phone-number.form-control(type="tel" name="phone" placeholder="Phone Number")
+            div.span4
+            div.sim1
+                div#registration-box-email-address.input-group.col-lg-3
+                  input#email-address.form-control(type="email" name="email" placeholder="Email Address")
+            div.span4
+            div.sim1
+                div#registration-box-home-group.input-group.col-lg-3
+                  input#home-group.form-control(type="text" name="homegroup" placeholder="Home Group")
+            div.span4
+            div.sim1
+                div#registration-box-badge-name.input-group.col-lg-3 
+                  input#badge-name.form-control(type="text" name="fname" placeholder="Badge Name")
+            div.span4
+            div.sim1
+                div#registration-box-address.input-group.col-lg-3
+                  input#address.form-control(type="text" name="address" placeholder="Street Address")
+            div.span4
+            div.sim1
+                div#registration-box-city.input-group.col-lg-3
+                  input#city.form-control(type="text" name="city" placeholder="City")
+            div.span4
+            div.sim1
+                div#registration-box-zip.input-group.col-lg-3
+                  input#zip.form-control(type="text" name="zip" placeholder="Zip Code")
+            div.span4
+            div.sim1
+                div#registration-box-cc.input-group.col-lg-3
+                  input#cc.form-control(type="text" name="cc-number" placeholder="Credit Card Number")
+                div#registration-box-ccv.input-group.col-lg-1
+                  input#ccv.form-control(type="text" name="cc-csc" placeholder="CCV Code")
+            div.span4
+            div.sim1
+              table
+                tr
+                  td
+                    h5 CC Month: 
+                      select#expire-month
+                        option(value="00") Month
+                        option(value="01") 01-JAN
+                        option(value="02") 02-FEB
+                        option(value="03") 03-MAR
+                        option(value="04") 04-APR
+                        option(value="05") 05-MAY
+                        option(value="06") 06-JUN
+                        option(value="07") 07-JUL
+                        option(value="08") 08-AUG
+                        option(value="09") 09-SEP
+                        option(value="10") 10-OCT
+                        option(value="11") 11-NOV
+                        option(value="12") 12-DEC
+                  td
+                    br
+                  td
+                    h5 CC Year: 
+                      select#expire-year
+                        option(value="00") YEAR
+                        option(value="2014") 2014
+                        option(value="2015") 2015
+                        option(value="2016") 2016
+                        option(value="2017") 2017
+                        option(value="2018") 2018
+                        option(value="2019") 2019
+                        option(value="2020") 2020
+                  td
+                    br
+                  td
+                    h5 Type: 
+                      select#cc-type
+                        option(value="00") Credit Card Type
+                        option(value="visa") Visa
+                        option(value="mastercard") MasterCard
+                        option(value="discover") Discover
+                        option(value="american express") American Express 
+                  
+                  
       span.input-group-btn
+        //script(src="js/paypal-button.min.js?merchant=R3BNGFCJE8QN8" data-button="buynow" callback="http://localhost:3000/register" data-name="SFC Registration" data-amount="0.00" async)
+        
         button#user-submit.btn.btn-default(type="button") Register & Pay
