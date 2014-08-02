@@ -77,10 +77,10 @@ exports.register = function(req, res) {
 		    },
 		    "transactions": [{
 		        "amount": {
-		            "total": "1",
+		            "total": "20",
 		            "currency": "USD",
 		            "details": {
-		                "subtotal": "1",
+		                "subtotal": "20",
 		                "tax": "0",
 		                "shipping": "0"
 		            }
