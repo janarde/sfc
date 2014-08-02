@@ -9,6 +9,7 @@ var express = require('express')
   , serverDomain = domain.create()
   , user = require('./routes/user')
   , https = require('https')
+  , http = require('http')
   , path = require('path')
   , crypto = require('crypto')
   , fs = require("fs");
@@ -30,7 +31,15 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+function requireHTTPS(req, res, next) {
+    if (!req.secure) {
+        //FYI this should work for local development as well
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+}
 
+app.use(requireHTTPS);
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -45,8 +54,11 @@ app.post('/register', routes.register);
 app.get('/confirm', routes.confirm);
 
 serverDomain.run(function () {
+	http.createServer(app).listen(80, function() {
+		console.log('Express http server listening on port '+ 80); 
+	});
 	https.createServer(config, app).listen(app.get('port'), function(){
-		console.log('Express server listening on port ' + app.get('port'));
+		console.log('Express https server listening on port ' + app.get('port'));
 	});
 });
 

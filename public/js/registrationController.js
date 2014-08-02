@@ -89,7 +89,10 @@ function RegistrationController() {
             	if (statusObj.status == "failed") {
             		if (statusObj.message.errno == 1062) {
             			message = "Already Registered";
-            			$('#registration-error-alert').append(message);
+            			$('#registration-error-alert').text(message);
+            		} else {
+            			message = statusObj.message;
+            			$('#registration-error-alert').text(message);
             		}
             		
             		$('#registration-error-alert').css('display','inline-block');

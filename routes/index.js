@@ -92,7 +92,7 @@ exports.register = function(req, res) {
 	paypal_api.payment.create(create_payment_json, config_opts, function (err, response) {
 	    if (err) {
 	        console.log(err.response);
-	        throw err;
+	        res.send({status: "failed", message: err.response.details[0].issue})
 	    }
 
 	    if (response) {
