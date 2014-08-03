@@ -106,7 +106,11 @@ block pane
                         option(value="mastercard") MasterCard
                         option(value="discover") Discover
                         option(value="american express") American Express 
-                  
+            div.span4
+            div.sim1
+                div#registration-box-cc.input-group.col-lg-1
+                  h4 Total:
+                    input#cost.form-control(type="text" name="registration-fee" placeholder="$20.00" readonly)
                   
       span.input-group-btn
         //script(src="js/paypal-button.min.js?merchant=R3BNGFCJE8QN8" data-button="buynow" callback="http://localhost:3000/register" data-name="SFC Registration" data-amount="0.00" async)

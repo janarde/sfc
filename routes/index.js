@@ -4,7 +4,7 @@ var paypal_api = require('paypal-rest-sdk');
 
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Seattle Fall Conference' });
 };
 
 exports.payment = function(req, res) {
@@ -12,7 +12,7 @@ exports.payment = function(req, res) {
 };
 
 exports.registration = function(req, res) {
-	res.render('registration', {title: 'registration'});
+	res.render('registration', {title: 'Registration'});
 };
 
 exports.resources = function(req, res) {
@@ -46,7 +46,7 @@ exports.register = function(req, res) {
 	
     
 	var config_opts = {
-		    'host': 'api.sandbox.paypal.com',
+		    'host': 'api.paypal.com',
 		    'port': '',
 		    'client_id': 'AQylIBBWxnN72ozlZH4alfGGHZAwgH9Rhe3SOdp02rlZONhOW5QwZfPUNia1',
 		    'client_secret': 'EPtmSRB4FNMrIzspE2LFM9jsT89WbRTF3MaFYDydlmWU9xdNPz_ZfQafOnCu'
