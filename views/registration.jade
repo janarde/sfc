@@ -57,6 +57,7 @@ block pane
             div.sim1
                 div#registration-box-zip.input-group.col-lg-3
                   input#zip.form-control(type="text" name="zip" placeholder="Zip Code")
+          //
             div.span4
             div.sim1
                 div#registration-box-cc.input-group.col-lg-3
@@ -113,6 +114,6 @@ block pane
                     input#cost.form-control(type="text" name="registration-fee" placeholder="$20.00" readonly)
                   
       span.input-group-btn
-        //script(src="js/paypal-button.min.js?merchant=R3BNGFCJE8QN8" data-button="buynow" callback="http://localhost:3000/register" data-name="SFC Registration" data-amount="0.00" async)
+        //script(src="js/paypal-button.min.js?merchant=R3BNGFCJE8QN8" data-button="buynow" data-name="SFC Registration" data-amount="20.00" async)
         
         button#user-submit.btn.btn-default(type="button") Register & Pay

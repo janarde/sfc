@@ -28,7 +28,7 @@ exports.confirm = function(req, res) {
 };
 
 exports.register = function(req, res) {
-	var db = new dao('localhost', 'sfc', 'sfc', 'sfc');
+	var db = new dao('sfc.cdgxwgwqkcyl.us-west-2.rds.amazonaws.com', 'sfc', 'k2kermit', 'sfc');
 	var first = req.body.firstName;
 	var last = req.body.lastName;
 	var phone = req.body.phoneNumber;
@@ -46,7 +46,7 @@ exports.register = function(req, res) {
 	
     
 	var config_opts = {
-		    'host': 'api.paypal.com',
+		    'host': 'api.paypal.com/v1/payments/payment',
 		    'port': '',
 		    'client_id': 'AQylIBBWxnN72ozlZH4alfGGHZAwgH9Rhe3SOdp02rlZONhOW5QwZfPUNia1',
 		    'client_secret': 'EPtmSRB4FNMrIzspE2LFM9jsT89WbRTF3MaFYDydlmWU9xdNPz_ZfQafOnCu'
@@ -88,7 +88,7 @@ exports.register = function(req, res) {
 		        "description": "This is the payment transaction description."
 		    }]
 		};
-	
+	/*
 	paypal_api.payment.create(create_payment_json, config_opts, function (err, response) {
 	    if (err) {
 	        console.log(err.response);
@@ -98,6 +98,7 @@ exports.register = function(req, res) {
 	    if (response) {
 	        console.log("Create Payment Response");
 	        console.log(response);
+	         */
 	        var data = { firstName: first, 
 	    		     lastName: last, 
 	    		     phoneNumber: phone, 
@@ -108,6 +109,7 @@ exports.register = function(req, res) {
 	    		     homegroup: homegroup,
 	    		     badgename: badgename
 	    		    };
+	    		   
 	        db.register(data, function(err, result) {
 	        	if (err) {
 	        		res.send({ status: "failed", message : err });
@@ -115,8 +117,8 @@ exports.register = function(req, res) {
 	        		res.send({ status: "success", message : result.insertId });
 	        	}
 	        });
-	    }
-	});
+	    //}
+	//});
 	
     
 }

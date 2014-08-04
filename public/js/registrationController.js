@@ -42,7 +42,7 @@ function RegistrationController() {
 			$('#registration-error-alert').text(message);
 			$('#registration-error-alert').css('display','inline-block');
 			return false;
-		} else if (payload.cc == '') {
+		} /*else if (payload.cc == '') {
 			message = "You must provide your Credit Card number.";
 			$('#registration-error-alert').text(message);
 			$('#registration-error-alert').css('display','inline-block');
@@ -67,7 +67,7 @@ function RegistrationController() {
 			$('#registration-error-alert').text(message);
 			$('#registration-error-alert').css('display','inline-block');
 			return false;
-		} else {
+		}*/ else {
 			return true;
 		}
 	};
@@ -123,12 +123,12 @@ $(document).ready(function() {
 	            city: $('#city').val(),
 	            zip: $('#zip').val(),
 	            homeGroup: $('#home-group').val(),
-	            badgeName: $('#badge-name').val(),
+	            badgeName: $('#badge-name').val()/*,
 	            cc: $('#cc').val(),
 	            ccv: $('#ccv').val(),
 	            expireMonth: $('#expire-month').val(),
 	            expireYear: $('#expire-year').val(),
-	            ccType: $('#cc-type').val()
+	            ccType: $('#cc-type').val()*/
 	    };
 		
 		if (rc.validatePayload(payload)) {
