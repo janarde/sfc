@@ -23,8 +23,8 @@ exports.about = function(req, res) {
 	res.render('about', {title: 'About SFC'});
 };
 
-exports.confirm = function(req, res) {
-	res.render('confirm', {title: 'Registration Confirmation Page'});
+exports.schedule = function(req, res) {
+	res.render('schedule', {title: 'Conference Schedule'});
 };
 
 exports.register = function(req, res) {

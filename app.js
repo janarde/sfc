@@ -51,7 +51,7 @@ app.get('/about', routes.about);
 app.get('/registration', routes.registration);
 app.get('/resources', routes.resources);
 app.post('/register', routes.register);
-app.get('/confirm', routes.confirm);
+app.get('/schedule', routes.schedule);
 
 serverDomain.run(function () {
 	http.createServer(app).listen(80, function() {
